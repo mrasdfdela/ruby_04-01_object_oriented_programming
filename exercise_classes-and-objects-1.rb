@@ -1,6 +1,6 @@
 class MyCar
-    attr_reader :year, :color, :model
-    attr_accessor :speed
+    attr_reader :year, :model
+    attr_accessor :speed, :color
     
     def initialize(year, color, model)
         @year = year
@@ -19,6 +19,10 @@ class MyCar
     def shut_off
         self.speed = 0
     end
+
+    def spray_paint(new_color)
+        @color = new_color
+    end
 end
 
 jerry = MyCar.new(2009, "black", "corolla")
@@ -30,4 +34,10 @@ jerry.brake
 p jerry
 
 jerry.shut_off
+p jerry
+
+p jerry.color
+p jerry.year
+
+jerry.spray_paint("white")
 p jerry
