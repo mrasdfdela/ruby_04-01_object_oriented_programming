@@ -23,6 +23,15 @@ class MyCar
     def spray_paint(new_color)
         @color = new_color
     end
+
+    def self.gas_mileage(miles, gallon)
+        gas_mileage = miles / gallon
+        return gas_mileage
+    end
+
+    def to_s 
+        "Your #{@year} #{@color} #{self.model} looks wonderful!"
+    end
 end
 
 jerry = MyCar.new(2009, "black", "corolla")
@@ -40,4 +49,6 @@ p jerry.color
 p jerry.year
 
 jerry.spray_paint("white")
-p jerry
+puts jerry
+
+puts MyCar.gas_mileage(34,1)
