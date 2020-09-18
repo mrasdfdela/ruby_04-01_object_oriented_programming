@@ -1,3 +1,12 @@
+module MoveStuff
+    def move_couch
+        puts "...moving couch..."
+    end
+    def sleep_in_bed
+        puts "...sleeping under the stars..."
+    end
+end
+
 class Vehicle
     attr_reader :year, :model
     attr_accessor :color, :speed
@@ -30,10 +39,10 @@ class Vehicle
 
     def self.gas_mileage(miles, gallon)
         gas_mileage = miles / gallon
-        return gas_mileage
+        puts "You get #{gas_mileage} miles/gallon"
     end
     def self.garage
-        @@garage
+        puts "You have #{@@garage} vehicles in the garage"
     end
 end
 
@@ -45,6 +54,8 @@ class MyCar < Vehicle
 end
 
 class MyTruck < Vehicle
+    include MoveStuff
+
     NUMBER_OF_DOORS = 2
     def initialize(year, color, model)
         super(year, color, model)
@@ -70,6 +81,11 @@ puts jerry
 
 puts MyCar.gas_mileage(34,1)
 
-cybertruck = MyTruck.new(2021, "silver", "cybertruck")
+# inheritance, exercise 1
+king_ranch = MyTruck.new(2021, "silver", "F-350")
 
+# inheritance, exercise 2
 puts Vehicle.garage
+
+# inheritance, exercise 3
+king_ranch.move_couch
