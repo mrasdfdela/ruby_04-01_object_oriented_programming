@@ -1,11 +1,38 @@
-class MyCar
+class Vehicle
     attr_reader :year, :model
-    attr_accessor :speed, :color
+    attr_accessor :color
     
     def initialize(year, color, model)
         @year = year
         @color = color
         @model = model
+    end
+
+    def to_s 
+        "Your #{@year} #{@color} #{self.model} looks wonderful!"
+    end    attr_accessor :speed
+
+    def self.gas_mileage(miles, gallon)
+        gas_mileage = miles / gallon
+        return gas_mileage
+    end
+end
+
+class MyCar < Vehicle    
+    NUMBER_OF_DOORS = 4
+    attr_accessor :speed
+    def initialize(speed)
+        @speed = 0
+    end
+
+    def spray_paint(new_color)
+        @color = new_color
+    end
+    def to_s 
+        "Your #{@year} #{@color} #{self.model} looks wonderful!"
+    end    attr_accessor :speed
+
+    def initialize(speed)
         @speed = 0
     end
 
@@ -20,17 +47,18 @@ class MyCar
         self.speed = 0
     end
 
-    def spray_paint(new_color)
-        @color = new_color
-    end
+end
 
-    def self.gas_mileage(miles, gallon)
-        gas_mileage = miles / gallon
-        return gas_mileage
+class MyTruck < Vehicle
+    NUMBER_OF_DOORS = 2
+    def initialize(grille_guard)
+        @grille_guard = false
     end
-
-    def to_s 
-        "Your #{@year} #{@color} #{self.model} looks wonderful!"
+    def install_guard
+        @grille_guard = true
+    end
+    def remove_guard
+        @grille_guard = false
     end
 end
 
