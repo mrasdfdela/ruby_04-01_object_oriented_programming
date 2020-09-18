@@ -44,6 +44,16 @@ class Vehicle
     def self.garage
         puts "You have #{@@garage} vehicles in the garage"
     end
+
+    def show_age
+        puts "your car is #{age} years old"
+    end
+
+    private
+    def age
+        current_year = Time.now.year
+        return current_year - @year
+    end
 end
 
 class MyCar < Vehicle    
@@ -89,3 +99,10 @@ puts Vehicle.garage
 
 # inheritance, exercise 3
 king_ranch.move_couch
+
+#inheritance, exercise 4
+puts MyCar.ancestors
+puts MyTruck.ancestors
+
+# inheritance, exercise 6
+puts jerry.show_age
